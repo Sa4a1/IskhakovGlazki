@@ -58,9 +58,9 @@
                         </Grid.ColumnDefinitions>
                         
 
-                        <Image Width="200" Grid.Column="0" Stretch="UniformToFill" HorizontalAlignment="Center" >
+                        <Image Width="200" Grid.Column="0" Grid.RowSpan="4" Stretch="UniformToFill" HorizontalAlignment="Center" >
                             <Image.Source>
-                                <Binding Path="MainimagePath">
+                                <Binding Path="Logo">
                                     <Binding.TargetNullValue>
                                         <ImageSource>
                                             Images/picture.png
@@ -69,15 +69,20 @@
                                 </Binding>
                             </Image.Source>
                         </Image>
-                        <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Title}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="20" VerticalAlignment="Center" TextWrapping="Wrap" />
-                        <TextBlock Text="{Binding AgentTypeName}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20"/>
-                            <TextBlock Text=" | " Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
+
                         <TextBlock Text="{Binding Phone}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20"/>
-                        <TextBlock Text="{Binding Priority}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="15"/>
+                       
+                    
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
+                            <TextBlock Text="{Binding AgentTypeName}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="20"/>
+                            <TextBlock Text=" | " Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+                            <TextBlock Text="{Binding Title}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="20" VerticalAlignment="Center" TextWrapping="Wrap" />
                         </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                            <TextBlock Text="Приорететность:  " Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="15"/>
+                            <TextBlock Text="{Binding Priority}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="15"/>
+                        </StackPanel>
+                       
                     </Grid>
                 </DataTemplate>
         </ListView.ItemTemplate>
