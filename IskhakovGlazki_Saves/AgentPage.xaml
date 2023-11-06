@@ -14,7 +14,19 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="LDirBtn" Content="&lt;" Width="20" Height="20" Click="LDirBtn_Click"/>
+            <ListBox FontSize="20" Name="PageListBox" MouseUp="PageListBox_MouseUp">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <Button Name="RDirBtn" Content="&gt;" Width="20" Height="20" Click="RDirBtn_Click"/>
+        </StackPanel>
         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Введите название для поиска " HorizontalAlignment="Center" VerticalAlignment="Center"/>
