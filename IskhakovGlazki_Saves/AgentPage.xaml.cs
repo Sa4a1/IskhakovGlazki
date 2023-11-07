@@ -154,5 +154,10 @@ namespace IskhakovGlazki_Saves
         {
             ChangePage(0, Convert.ToInt32(PageListBox.SelectedItem.ToString())-1);
         }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

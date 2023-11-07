@@ -32,8 +32,8 @@
                 <TextBlock Text="Введите название для поиска " HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <TextBox Name="TxtSearch" TextChanged="txtSearch_TextChanged" Width="300" FontSize="20" />
             </StackPanel>
-            <StackPanel>
-                <ComboBox Name="SortCmb" SelectionChanged="SortCmb_SelectionChanged" FontSize="10" Width="96" Margin="0,15,0,15">
+            <StackPanel Width="322" Height="45">
+                <ComboBox Name="SortCmb" SelectionChanged="SortCmb_SelectionChanged" FontSize="10" Width="100" Margin="100,20,0,15" HorizontalAlignment="Left">
                     <TextBlock Text="Все"/>
                     <TextBlock Text="МФО"/>
                     <TextBlock Text="ООО"/>
@@ -42,10 +42,7 @@
                     <TextBlock Text="ОАО"/>
                     <TextBlock Text="ПАО"/>
                 </ComboBox>
-                </StackPanel>
-            <StackPanel>
-                
-                <ComboBox Name="SortCmbТ1" SelectionChanged="SortCmbТ1_SelectionChanged" FontSize="10" Width="94" Margin="10,15,0,0">
+                <ComboBox Name="SortCmbТ1" SelectionChanged="SortCmbТ1_SelectionChanged" FontSize="10" Height="20" Width="100" Margin="0,-47,-200,0" HorizontalAlignment="Center">
                     <TextBlock Text="Все"/>
                     <TextBlock Text="Наименование по алфавиту (Возраст)"/>
                     <TextBlock Text="Наименование по алфавиту (Убыв)"/>
@@ -53,6 +50,7 @@
                     <TextBlock Text="Приоретет(Убыв)"/>
                 </ComboBox>
             </StackPanel>
+            <Button Name="AddBtn" Content="Добавить" Width="130" Height="20" Margin="20,15,0,0" Click="AddBtn_Click"/>
         </WrapPanel>
         <ListView Name="AgentListView" Grid.Row="2">
         <ListView.ItemTemplate>
