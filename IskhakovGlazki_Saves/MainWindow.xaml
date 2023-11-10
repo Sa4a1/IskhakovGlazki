@@ -14,6 +14,6 @@
         </Grid.RowDefinitions>
         <Button Name="ListAgentBtn" Content="Показать Список Агентов" FontSize="20" Width="275" Height="45" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,25,0"  Click="ListAgentBtn_Click"/>
         <Image Source="/Images/Глазки-save.png" HorizontalAlignment="Left" Height="200" VerticalAlignment="Center"/>
-        <Frame Grid.Row="1" Name="MainFrame"/>
+        <Frame Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

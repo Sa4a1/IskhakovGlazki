@@ -157,7 +157,12 @@ namespace IskhakovGlazki_Saves
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
+            Manager.MainFrame.Navigate(new AdEdPage());
+        }
 
+        private void edBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AdEdPage((sender as Button).DataContext as Agent));
         }
     }
 }

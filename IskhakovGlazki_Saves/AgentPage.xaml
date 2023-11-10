@@ -92,7 +92,8 @@
                             <TextBlock Text="Приорететность:  " Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="15"/>
                             <TextBlock Text="{Binding Priority}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="15"/>
                         </StackPanel>
-                       
+                        <Button Name="edBtn" Click="edBtn_Click" Width="170" Height="30" FontSize="20" Content="редактировать" Grid.Row="3"/>
+
                     </Grid>
                 </DataTemplate>
         </ListView.ItemTemplate>
