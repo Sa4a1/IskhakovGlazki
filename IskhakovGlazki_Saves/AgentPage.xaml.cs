@@ -37,6 +37,7 @@ namespace IskhakovGlazki_Saves
             AgentListView.ItemsSource = currentAgents;
             SortCmb.SelectedIndex = 0;
             SortCmbТ1.SelectedIndex = 0;
+           
         }
 
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)

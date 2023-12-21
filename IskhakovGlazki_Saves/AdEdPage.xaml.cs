@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,22 +23,43 @@ namespace IskhakovGlazki_Saves
     /// </summary>
     public partial class AdEdPage : Page
     {
+       
         private Agent currentAgent = new Agent();
-        List<AgentType> agenttypeDblist = Iskhakov_GlazkiEntities.GetContext().AgentType.ToList();
-        public AdEdPage(Agent SelectedAgent = null)
+        private List<AgentType> agentTypeDblist = Iskhakov_GlazkiEntities.GetContext().AgentType.ToList();
+        public AdEdPage(Agent SelectedAgent = null )
         {
             InitializeComponent();
-            if(SelectedAgent != null)
+        
+            if (SelectedAgent != null)
             {
-                currentAgent = SelectedAgent;
+                this.currentAgent = SelectedAgent;
                 Combotype.SelectedItem = currentAgent.AgentTypeID -1;
             }
-            DataContext = currentAgent.AgentType;
+            DataContext = currentAgent;
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var currentAgent = (sender as Button).DataContext as Agent; 
+            var currentProductSaleCount = Iskhakov_GlazkiEntities.GetContext().ProductSale.ToList();
+            currentProductSaleCount= currentProductSaleCount.Where(p=>p.AgentID == currentAgent.ID).ToList();
+            if (currentProductSaleCount.Count == 0)
+            {
+                if (MessageBox.Show("Вы точно хотите выполнить удаление?!", "Внимание!!!", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        Iskhakov_GlazkiEntities.GetContext().Agent.Remove(currentAgent);
+                        Iskhakov_GlazkiEntities.GetContext().SaveChanges();
+                        Manager.MainFrame.GoBack();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString());
+                    }
+                }
+            }
+            else MessageBox.Show("Невозможно удаление записи, из-за существования реализации продукции!!");
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
