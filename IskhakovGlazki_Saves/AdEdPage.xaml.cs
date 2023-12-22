@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,20 +23,32 @@ namespace IskhakovGlazki_Saves
     /// </summary>
     public partial class AdEdPage : Page
     {
+       
         private Agent currentAgent = new Agent();
+<<<<<<< HEAD
         public AdEdPage(Agent SelectedAgent)
+=======
+        private List<AgentType> agentTypeDblist = Iskhakov_GlazkiEntities.GetContext().AgentType.ToList();
+        public AdEdPage(Agent SelectedAgent = null )
+>>>>>>> 4e509afc1200ddc2edc3409183024c47bdeeba7c
         {
             InitializeComponent();
-            if(SelectedAgent != null)
+        
+            if (SelectedAgent != null)
             {
                 this.currentAgent = SelectedAgent;
+<<<<<<< HEAD
                 Combotype.SelectedIndex = currentAgent.AgentTypeID -1;
+=======
+                Combotype.SelectedItem = currentAgent.AgentTypeID -1;
+>>>>>>> 4e509afc1200ddc2edc3409183024c47bdeeba7c
             }
             DataContext = currentAgent;
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
             var currentAgent = (sender as Button).DataContext as Agent;
 
             var curruntProductSale = Iskhakov_GlazkiEntities.GetContext().ProductSale.ToList();
@@ -48,6 +61,14 @@ namespace IskhakovGlazki_Saves
             {
                 if (MessageBox.Show("Вы точно хотите выполнить удаление?", "Внимание!",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+=======
+            var currentAgent = (sender as Button).DataContext as Agent; 
+            var currentProductSaleCount = Iskhakov_GlazkiEntities.GetContext().ProductSale.ToList();
+            currentProductSaleCount= currentProductSaleCount.Where(p=>p.AgentID == currentAgent.ID).ToList();
+            if (currentProductSaleCount.Count == 0)
+            {
+                if (MessageBox.Show("Вы точно хотите выполнить удаление?!", "Внимание!!!", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+>>>>>>> 4e509afc1200ddc2edc3409183024c47bdeeba7c
                 {
                     try
                     {
@@ -61,6 +82,10 @@ namespace IskhakovGlazki_Saves
                     }
                 }
             }
+<<<<<<< HEAD
+=======
+            else MessageBox.Show("Невозможно удаление записи, из-за существования реализации продукции!!");
+>>>>>>> 4e509afc1200ddc2edc3409183024c47bdeeba7c
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)

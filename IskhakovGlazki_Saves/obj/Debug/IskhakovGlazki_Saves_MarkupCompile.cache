@@ -4,17 +4,26 @@
 winexe
 C#
 .cs
-D:\3 курс\ИСП-3121\Исхаков\IskhakovGlazki_Saves\obj\Debug\
+D:\VS projects\лаба\IskhakovGlazki\IskhakovGlazki_Saves\obj\Debug\
 IskhakovGlazki_Saves
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 D:\3 курс\ИСП-3121\Исхаков\IskhakovGlazki_Saves\App.xaml
 6-2019023622
 2-1957146511
 28-1941219763
 19-1618615674
 AddSalePage.xaml;AdEdPage.xaml;AgentPage.xaml;HistoryPage.xaml;MainWindow.xaml;PriorWindow.xaml;
+=======
+D:\VS projects\лаба\IskhakovGlazki\IskhakovGlazki_Saves\App.xaml
+3-1330997406
+2-1957146511
+25-1553937759
+19-804343720
+AdEdPage.xaml;AgentPage.xaml;MainWindow.xaml;
+>>>>>>> 4e509afc1200ddc2edc3409183024c47bdeeba7c
 
 True
 

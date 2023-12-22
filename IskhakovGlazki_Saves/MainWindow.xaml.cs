@@ -30,7 +30,12 @@ namespace IskhakovGlazki_Saves
         {
           MainFrame.Navigate(new AgentPage());
             Manager.MainFrame = MainFrame;
+<<<<<<< HEAD
             ListAgentBtn.Visibility = Visibility.Hidden;
+=======
+            if (Manager.MainFrame.CanGoBack)
+                ListAgentBtn.Visibility = Visibility.Hidden;
+>>>>>>> 4e509afc1200ddc2edc3409183024c47bdeeba7c
         }
     }
 }
