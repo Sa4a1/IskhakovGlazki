@@ -157,12 +157,54 @@ namespace IskhakovGlazki_Saves
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AdEdPage());
+            Manager.MainFrame.Navigate(new AdEdPage(null));
         }
 
         private void edBtn_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new AdEdPage((sender as Button).DataContext as Agent));
+        }
+
+        private void PriorEdBtn_Click(object sender, RoutedEventArgs e)
+        {
+            {
+                int max = 0;
+                foreach (Agent agent in AgentListView.SelectedItems)
+                {
+                    if (max < agent.Priority)
+                        max = agent.Priority;
+
+                }
+                PriorWindow Window = new PriorWindow(max);
+                Window.ShowDialog();
+                if (string.IsNullOrEmpty(Window.PriorityBox.Text))
+                {
+                    return;
+                }
+                foreach (Agent Agent in AgentListView.SelectedItems)
+                {
+                    Agent.Priority = Convert.ToInt32(Window.PriorityBox.Text);
+                }
+                try
+                {
+                    Iskhakov_GlazkiEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Информация обновлена");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+
+                }
+                UpdateAgents();
+            }
+        }
+
+        private void AgentListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (AgentListView.SelectedItems.Count > 1)
+                PriorEdBtn.Visibility = Visibility.Visible;
+            else PriorEdBtn.Visibility = Visibility.Hidden;
         }
     }
 }

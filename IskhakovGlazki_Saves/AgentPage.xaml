@@ -51,8 +51,9 @@
                 </ComboBox>
             </StackPanel>
             <Button Name="AddBtn" Content="Добавить" Width="130" Height="20" Margin="20,15,0,0" Click="AddBtn_Click"/>
+            <Button Name="PriorEdBtn" Content="Изменить Приоритет" Height="20" Margin="8,15,0,0" Click="PriorEdBtn_Click" Visibility="Hidden"/>
         </WrapPanel>
-        <ListView Name="AgentListView" Grid.Row="2">
+        <ListView Name="AgentListView" Grid.Row="2" SelectionChanged="AgentListView_SelectionChanged">
         <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

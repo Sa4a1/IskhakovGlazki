@@ -23,6 +23,8 @@ namespace IskhakovGlazki_Saves
         }
     
         public int ID { get; set; }
+   
+
         public string Title { get; set; }
         public int AgentTypeID { get; set; }
         public string Address { get; set; }

@@ -16,6 +16,7 @@ namespace IskhakovGlazki_Saves
     {
         public int ID { get; set; }
         public int AgentID { get; set; }
+        public string ProductString { get { return Product.Title; } }
         public int ProductID { get; set; }
         public System.DateTime SaleDate { get; set; }
         public int ProductCount { get; set; }

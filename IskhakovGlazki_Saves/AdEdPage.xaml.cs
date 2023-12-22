@@ -23,21 +23,44 @@ namespace IskhakovGlazki_Saves
     public partial class AdEdPage : Page
     {
         private Agent currentAgent = new Agent();
-        List<AgentType> agenttypeDblist = Iskhakov_GlazkiEntities.GetContext().AgentType.ToList();
-        public AdEdPage(Agent SelectedAgent = null)
+        public AdEdPage(Agent SelectedAgent)
         {
             InitializeComponent();
             if(SelectedAgent != null)
             {
-                currentAgent = SelectedAgent;
-                Combotype.SelectedItem = currentAgent.AgentTypeID -1;
+                this.currentAgent = SelectedAgent;
+                Combotype.SelectedIndex = currentAgent.AgentTypeID -1;
             }
-            DataContext = currentAgent.AgentType;
+            DataContext = currentAgent;
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
+            var currentAgent = (sender as Button).DataContext as Agent;
 
+            var curruntProductSale = Iskhakov_GlazkiEntities.GetContext().ProductSale.ToList();
+            curruntProductSale = curruntProductSale.Where(p => p.AgentID == currentAgent.ID).ToList();
+
+            if (curruntProductSale.Count != 0)
+                MessageBox.Show("Невозможно выполнить удаление, так как существует реализация продукции");
+
+            else
+            {
+                if (MessageBox.Show("Вы точно хотите выполнить удаление?", "Внимание!",
+                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        Iskhakov_GlazkiEntities.GetContext().Agent.Remove(currentAgent);
+                        Iskhakov_GlazkiEntities.GetContext().SaveChanges();
+                        Manager.MainFrame.GoBack();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString());
+                    }
+                }
+            }
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
@@ -83,6 +106,17 @@ namespace IskhakovGlazki_Saves
                 currentAgent.Logo = myOpenFile.FileName;
                 LogoImage.Source = new BitmapImage(new Uri(myOpenFile.FileName));
             }
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.GoBack();
+            Visibility = Visibility.Hidden;
+        }
+
+        private void HistrBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new HistoryPage((sender as Button).DataContext as Agent));
         }
     }
 }

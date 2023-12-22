@@ -102,3 +102,9 @@ D:\3 курс\ИСП-3121\Исхаков\IskhakovGlazki_Saves\obj\Debug\Iskhakov
 D:\3 курс\ИСП-3121\Исхаков\IskhakovGlazki_Saves\obj\Debug\IskhakovGlazki_Saves.pdb
 D:\3 курс\ИСП-3121\Исхаков\IskhakovGlazki_Saves\obj\Debug\AdEdPage.g.cs
 D:\3 курс\ИСП-3121\Исхаков\IskhakovGlazki_Saves\obj\Debug\AdEdPage.baml
+D:\3 курс\ИСП-3121\Исхаков\IskhakovGlazki_Saves\obj\Debug\PriorWindow.g.cs
+D:\3 курс\ИСП-3121\Исхаков\IskhakovGlazki_Saves\obj\Debug\PriorWindow.baml
+D:\3 курс\ИСП-3121\Исхаков\IskhakovGlazki_Saves\obj\Debug\AddSalePage.g.cs
+D:\3 курс\ИСП-3121\Исхаков\IskhakovGlazki_Saves\obj\Debug\HistoryPage.g.cs
+D:\3 курс\ИСП-3121\Исхаков\IskhakovGlazki_Saves\obj\Debug\AddSalePage.baml
+D:\3 курс\ИСП-3121\Исхаков\IskhakovGlazki_Saves\obj\Debug\HistoryPage.baml
